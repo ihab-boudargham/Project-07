@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://fonts.cdnfonts.com/css/rubik-wet-paint" rel="stylesheet">
+    <title>Music Box</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        .header h1 {
+            font-family: 'Rubik Wet Paint', sans-serif;
+            font-size: 50px;
+            color: white;
+
+        }
+
+        .form-height {
+            height: 450px;
+            width: 450px;
+        }
+
+        .form p {
+            font-family: 'Rubik Wet Paint', sans-serif;
+            font-size: 30px;
+            color: black;
+        }
+
+        .user-details {
+            font-family: 'Rubik Wet Paint', sans-serif;
+            font-size: 40px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<section class="gap-14 flex flex-col justify-center items-center bg-black relative">
+    <div class="header">
+        <h1>Start</h1>
+    </div>
+
+    <div class="user-details absolute flex top-20 right-0 flex-col pr-10">
+        <div class="username"><p>Username</p></div>
+        <div class="level"><p>Lvl</p></div>
+    </div>
+
+    <div class="form form-height border-2 border-black bg-gray-100 py-12 flex rounded-3xl bg-white flex-wrap gap-4 justify-center">
+        <div class="box1 h-40 w-40 border-2 border-red rounded-3xl bg-green-600 flex justify-center items-center"><p>Green</p></div>
+        <div class="box2 h-40 w-40 border-2 border-red rounded-3xl bg-red-600 flex justify-center items-center"><p>Red</p></div>
+        <div class="box3 h-40 w-40 border-2 border-red rounded-3xl bg-yellow-300 flex justify-center items-center"><p>Yellow</p></div>
+        <div class="box4 h-40 w-40 border-2 border-red rounded-3xl bg-blue-600 flex justify-center items-center"><p>Blue</p></div>
+    </div>
+   
+</section>
+</body>
+</html>
