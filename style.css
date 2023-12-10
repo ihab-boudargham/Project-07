@@ -1,0 +1,128 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.header button {
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-size: 50px;
+    color: greenyellow;
+}
+
+#green, #red, #blue, #yellow {
+    cursor: pointer;
+}
+
+.color-element:hover {
+    box-shadow: inset 0px 0px 0px 3px rgb(0, 0, 0);
+}
+ 
+
+.form-height {
+    height: 450px;
+    width: 450px;
+}
+
+.form p {
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-size: 30px;
+    color: black;
+}
+
+.user-details {
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+.start-screen {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 250px;
+    background-color: rgba(0, 0, 0,0.9); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; 
+    color: #fff;
+    margin-top: 15%;
+}
+
+.enter-button {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background-color: #4caf50; /* Green button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-size: 20px;
+}
+
+.enter-button:hover {
+    background-color: #45a6e8; /* Lighter shade on hover */
+}
+
+.start-screen h1 {
+    color: white;
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-size: 40px;
+}
+
+.start-screen p {
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.start-screen #username {
+    margin-top: 6px;
+    border-color: #45a6e8;
+    border: 2px;
+    height: 50px;
+    width: 200px;
+    color: black;
+    display: flex;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.user-details .username {
+    color: red;
+}
+
+.game-message {
+    color: rgb(3, 7, 250);
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-size: 30px;
+    display: flex;
+    width: 400px;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.highlight {
+opacity: 0.8; /* Adjust opacity or add any other styling for the highlighted state */
+transition: opacity 0.3s ease;
+}
+
+
+
+.active {
+    background-color: white;
+}
