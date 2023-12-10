@@ -13,7 +13,7 @@
     <title>Music Box</title>
 
 </head>
-<body class="bg-black relative">
+<body class="color relative">
 
     <div class="start-screen absolute">
         <h1>Welcome to Music Box Challenge!</h1>
@@ -22,7 +22,7 @@
         <button class="enter-button" onclick="enterGame()">Enter Game</button>
     </div> 
 
-    <section class="gap-14 mt-5 flex flex-col justify-center items-center bg-black relative">
+    <section class="gap-14 mt-5 flex flex-col justify-center items-center color relative">
         <div class="header flex flex-col items-center">
             <button class="start" onclick="startGame()">Start</button>
             <h1 class="game-message"></h1>
@@ -30,10 +30,10 @@
 
         <div class="user-details absolute flex top-20 right-0 flex-col pr-10">
             <div class="username"><p></p></div>
-            <div id="level" class="level">0</div>
+            <div id="level" class="level"></div>
         </div>
 
-        <div class="form form:hover form-height border-2 border-black bg-gray-100 py-12 flex rounded-3xl bg-white flex-wrap gap-4 justify-center">
+        <div class="form form-color form-height border-2 border-black bg-gray-100 py-12 flex rounded-3xl bg-white flex-wrap gap-4 justify-center shadow-lg">
             <div id="green" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-green-600 flex justify-center items-center"></div>
             <div id="red" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-red-600 flex justify-center items-center"></div>
             <div id="yellow" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-yellow-300 flex justify-center items-center"></div>

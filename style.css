@@ -8,10 +8,21 @@ body {
     height: 100vh;
 }
 
+#level {
+    color: #ff4a02;
+}
+
+.color {
+    background: linear-gradient(to right, #ff6b6b, #ffa07a, #f0e68c, #98fb98); /* Adjust the colors as needed */
+}
+
+.form-color {
+    background: linear-gradient(to right,  #908f92, #4c4b4c, #908f92);
+}
 .header button {
     font-family: 'Rubik Wet Paint', sans-serif;
     font-size: 50px;
-    color: greenyellow;
+    color: black;
 }
 
 #green, #red, #blue, #yellow {
@@ -45,7 +56,7 @@ body {
     left: 0;
     width: 100vw;
     height: 250px;
-    background-color: rgba(0, 0, 0,0.9); 
+    background-color: rgba(0, 0, 0,0.7); 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,11 +113,11 @@ body {
 }
 
 .user-details .username {
-    color: red;
+    color: rgb(0, 132, 255);
 }
 
 .game-message {
-    color: rgb(3, 7, 250);
+    color: rgb(192, 2, 154);
     font-family: 'Rubik Wet Paint', sans-serif;
     font-size: 30px;
     display: flex;
@@ -114,6 +125,7 @@ body {
     flex-wrap: wrap;
     text-align: center;
     margin-top: 20px;
+
 }
 
 .highlight {
@@ -121,8 +133,17 @@ opacity: 0.8; /* Adjust opacity or add any other styling for the highlighted sta
 transition: opacity 0.3s ease;
 }
 
-
-
-.active {
-    background-color: white;
+.win-message {
+    font-family: 'Rubik Wet Paint', sans-serif;
+    color:rgb(2, 255, 2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(1, 71, 1, 0.9);
+    padding: 10px;
+    font-size: 24px;
+    border: 2px solid rgb(1, 71, 1, 0.9);
+    border-radius: 5px;
+    z-index: 1000;
 }

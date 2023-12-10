@@ -10,7 +10,6 @@ let highScore = 0;
 //     if (level <= 0) {
 //         // give the next sequence of colors
 //         nextSequence();
-
 //     }
 //     // alert("Key is pressed");
 // });
@@ -60,21 +59,38 @@ let highScore = 0;
                 setTimeout(function () {
                     userPattern = [];
                     numClick = -1;
-                    nextSequence(); // to level up
-                }, 1000);
+                    if (level > 0) {
+                        displayWinMessage();
+                        setTimeout(function () {
+                            nextSequence(); // Delay before starting the next level
+                        }, 1000); // Adjust the delay time (in milliseconds)
+                    } else {
+                        nextSequence(); // Start the next level immediately if level is 0
+                    }
+                }, 500); // Adjust the delay time (in milliseconds)
             }
         } else {
-            // Play losing sound
             playAudio('lose');
-
-            // Display a message and reset to level 0
+            let gameMessage = document.querySelector('.game-message');
+            gameMessage.style.color = 'red'; // Set the color to red for this instance
             updateGameMessage("Wrong answer! Press Start to play again.");
             userPattern = [];
             correctPattern = [];
             level = 0;
             numClick = -1;
-            document.querySelector('.header button').style.display = 'block'; // Show the Start button
+            document.querySelector('.header button').style.display = 'block';
         }
+        
+    }
+    
+    function displayWinMessage() {
+        let winMessage = document.createElement('div');
+        winMessage.classList.add('win-message');
+        winMessage.textContent = `You won Level ${level}!`;
+        document.body.appendChild(winMessage);
+        setTimeout(() => {
+            document.body.removeChild(winMessage);
+        }, 1000); // Adjust the delay time (in milliseconds)
     }
     
     // when level = 0 it will get back to this function:
@@ -88,26 +104,29 @@ let highScore = 0;
     // });
     
 
-function enterGame() {
-    var username = document.getElementById('username').value;
-    document.querySelector('.username p').textContent = username;
-    document.querySelector('.start-screen').style.display = 'none';
-    level.innerHTML = "- - -";
-    // generateInactiveGameBoard();
-    // clearInterval(intervalId);
-
-}
-
-function startGame() {
-    updateGameMessage('Game Started! Follow the Pattern !');
-    document.querySelector('.header button').style.display = 'none'; // to remove the Start button
-    nextSequence(); // Uncomment this line to start the game
-}
-
+    function enterGame() {
+        var username = document.getElementById('username').value;
+        document.querySelector('.username p').textContent = username;
+    
+        document.querySelector('.header button').style.color = 'darkgreen';
+    
+        document.querySelector('.start-screen').style.display = 'none';
+        document.querySelector('.header button').style.display = 'block'; // Show the Start button
+        document.getElementById('level').textContent = 'NA'; // Hide the level
+    }
+    
+    function startGame() {
+        updateGameMessage('Ready for the challenge? Follow the Pattern !');
+        document.querySelector('.header button').style.display = 'none'; // Hide the Start button
+        document.getElementById('level').style.display = 'block'; // Show the level
+        let gameMessage = document.querySelector('.game-message');
+        gameMessage.style.color = '';
+        nextSequence();
+        
+    }
+    
     document.querySelector('.start').addEventListener('click', startGame);
-
-
-function updateGameMessage(message) {
-    document.querySelector('.game-message').innerHTML = message;
-}
-
+    
+    function updateGameMessage(message) {
+        document.querySelector('.game-message').innerHTML = message;
+    }
