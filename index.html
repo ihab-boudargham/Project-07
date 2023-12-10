@@ -15,12 +15,12 @@
 </head>
 <body class="bg-black relative">
 
-    <!-- <div class="start-screen absolute">
+    <div class="start-screen absolute">
         <h1>Welcome to Music Box Challenge!</h1>
         <p>Can you follow the patterns of colored lights and press the correct buttons?</p>
         <textarea id="username" placeholder="Username"></textarea>
         <button class="enter-button" onclick="enterGame()">Enter Game</button>
-    </div> -->
+    </div> 
 
     <section class="gap-14 mt-5 flex flex-col justify-center items-center bg-black relative">
         <div class="header flex flex-col items-center">
@@ -30,14 +30,14 @@
 
         <div class="user-details absolute flex top-20 right-0 flex-col pr-10">
             <div class="username"><p></p></div>
-            <div class="level"><p></p></div>
+            <div id="level" class="level">0</div>
         </div>
 
         <div class="form form:hover form-height border-2 border-black bg-gray-100 py-12 flex rounded-3xl bg-white flex-wrap gap-4 justify-center">
-            <div id="green" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-green-600 flex justify-center items-center"><p>Green</p></div>
-            <div id="red" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-red-600 flex justify-center items-center"><p>Red</p></div>
-            <div id="yellow" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-yellow-300 flex justify-center items-center"><p>Yellow</p></div>
-            <div id="blue" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-blue-600 flex justify-center items-center"><p>Blue</p></div>
+            <div id="green" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-green-600 flex justify-center items-center"></div>
+            <div id="red" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-red-600 flex justify-center items-center"></div>
+            <div id="yellow" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-yellow-300 flex justify-center items-center"></div>
+            <div id="blue" class="buttons h-40 w-40 color-element border-2 border-red rounded-3xl bg-blue-600 flex justify-center items-center"></div>
         </div>
     
     </section>
