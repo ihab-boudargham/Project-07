@@ -7,64 +7,39 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link href="https://fonts.cdnfonts.com/css/rubik-wet-paint" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Music Box</title>
 
-    <style>
-        *{
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-
-        body {
-            height: 100vh;
-        }
-
-        .header h1 {
-            font-family: 'Rubik Wet Paint', sans-serif;
-            font-size: 50px;
-            color: white;
-
-        }
-
-        .form-height {
-            height: 450px;
-            width: 450px;
-        }
-
-        .form p {
-            font-family: 'Rubik Wet Paint', sans-serif;
-            font-size: 30px;
-            color: black;
-        }
-
-        .user-details {
-            font-family: 'Rubik Wet Paint', sans-serif;
-            font-size: 40px;
-            color: white;
-        }
-
-    </style>
 </head>
-<body>
+<body class="bg-black relative">
 
-<section class="gap-14 flex flex-col justify-center items-center bg-black relative">
-    <div class="header">
-        <h1>Start</h1>
+    <div class="start-screen absolute">
+        <h1>Welcome to Music Box Challenge!</h1>
+        <p>Can you follow the patterns of colored lights and press the correct buttons?</p>
+        <textarea id="username" placeholder="Username"></textarea>
+        <button class="enter-button" onclick="enterGame()">Enter Game</button>
     </div>
 
-    <div class="user-details absolute flex top-20 right-0 flex-col pr-10">
-        <div class="username"><p>Username</p></div>
-        <div class="level"><p>Lvl</p></div>
-    </div>
+    <section class="gap-14 mt-5 flex flex-col justify-center items-center bg-black relative">
+        <div class="header flex flex-col items-center">
+            <button class="start" onclick="startGame()">Start</button>
+            <h1 class="game-message"></h1>
+        </div>
 
-    <div class="form form-height border-2 border-black bg-gray-100 py-12 flex rounded-3xl bg-white flex-wrap gap-4 justify-center">
-        <div class="box1 h-40 w-40 border-2 border-red rounded-3xl bg-green-600 flex justify-center items-center"><p>Green</p></div>
-        <div class="box2 h-40 w-40 border-2 border-red rounded-3xl bg-red-600 flex justify-center items-center"><p>Red</p></div>
-        <div class="box3 h-40 w-40 border-2 border-red rounded-3xl bg-yellow-300 flex justify-center items-center"><p>Yellow</p></div>
-        <div class="box4 h-40 w-40 border-2 border-red rounded-3xl bg-blue-600 flex justify-center items-center"><p>Blue</p></div>
-    </div>
-   
-</section>
+        <div class="user-details absolute flex top-20 right-0 flex-col pr-10">
+            <div class="username"><p></p></div>
+            <div class="level"><p></p></div>
+        </div>
+
+        <div class="form form:hover form-height border-2 border-black bg-gray-100 py-12 flex rounded-3xl bg-white flex-wrap gap-4 justify-center">
+            <div id="green" class="box-button h-40 w-40 color-element border-2 border-red rounded-3xl bg-green-600 flex justify-center items-center"><p>Green</p></div>
+            <div id="red" class="box-button h-40 w-40 color-element border-2 border-red rounded-3xl bg-red-600 flex justify-center items-center"><p>Red</p></div>
+            <div id="yellow" class="box-button h-40 w-40 color-element border-2 border-red rounded-3xl bg-yellow-300 flex justify-center items-center"><p>Yellow</p></div>
+            <div id="blue" class="box-button h-40 w-40 color-element border-2 border-red rounded-3xl bg-blue-600 flex justify-center items-center"><p>Blue</p></div>
+        </div>
+    
+    </section>
+
+    <script src="index.js"> </script>
 </body>
 </html>
