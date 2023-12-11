@@ -96,6 +96,7 @@ let timerInterval; // Timer interval variable
     }
     
     function resetGame() {
+        correctPattern = [];
         clearInterval(timerInterval);
         updateTimerDisplay();
     
@@ -252,6 +253,7 @@ let timerInterval; // Timer interval variable
     }
     
     function startGame() {
+        resetGame();
         $(".exit-button").show();
         updateGameMessage('Ready for the challenge? Follow the Pattern !');
         document.querySelector('.header button').style.display = 'none'; // Hide the Start button
