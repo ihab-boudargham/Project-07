@@ -22,6 +22,14 @@
         <button class="enter-button" onclick="enterGame()">Enter Game</button>
     </div> 
 
+    <section>
+        <div id="timer-container">
+            <div id="timer-bar"></div>
+          </div>
+          
+          <div id="timer-display"></div>          
+    </section>
+
     <section class="gap-14 mt-5 flex flex-col justify-center items-center color relative">
         <div class="header flex flex-col items-center">
             <button class="start" onclick="startGame()">Start</button>
@@ -31,7 +39,6 @@
         <div class="user-details absolute flex top-20 right-0 flex-col pr-10">
             <div class="username"><p></p></div>
             <div id="level" class="level"></div>
-            <div id="timer-display"></div>
         </div>
 
         <div class="form form-color form-height border-2 border-black bg-gray-100 py-12 flex rounded-3xl bg-white flex-wrap gap-4 justify-center shadow-lg">

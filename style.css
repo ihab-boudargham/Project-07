@@ -157,5 +157,26 @@ transition: opacity 0.3s ease;
 }
 
 .lighter-green {
-    color: rgb(173, 255, 9);
+    color: rgb(222, 255, 9);
 }
+
+#timer-container {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to right,  #66bb6a, #26a69a); /* Gradient background */
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: dropDown 2s linear infinite;; /* Add a pulsating animation */
+  }
+
+  #timer-bar {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #ff0000, #ff8503, #ffff03 , #29ff03); /* Gradient background for the bar */
+    transition: width 1s linear;
+    border-radius: 8px;
+    position: absolute;
+  }

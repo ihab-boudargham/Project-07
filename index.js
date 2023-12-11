@@ -36,11 +36,15 @@ let timerInterval; // Timer interval variable
     function updateTimerDisplay() {
         const secondsRemaining = Math.max(0, Math.round(timeLimit / 1000)); // Ensure non-negative value
         document.getElementById('timer-display').textContent = secondsRemaining + 's';
-    }
+    
+        // Calculate the width of the timer bar based on the remaining time
+        const percentRemaining = (timeLimit / calculateTimeLimit(level)) * 100;
+        $('#timer-bar').css('width', percentRemaining + '%');
+      }
 
     function calculateTimeLimit(level) {
-        const initialTimeLimit = 2000; // Initial time limit in milliseconds (2 seconds)
-        const increasePerLevel = 1000; // Increase per level in milliseconds (0.5 seconds)
+        const initialTimeLimit = 2500; // Initial time limit in milliseconds (3 seconds)
+        const increasePerLevel = 500; // Increase per level in milliseconds (0.5 seconds)
         const maximumTimeLimit = 15000; // Maximum time limit in milliseconds (10 seconds)
     
         // Calculate the new time limit based on the level
@@ -62,7 +66,14 @@ let timerInterval; // Timer interval variable
         // Start the countdown timer
         timerInterval = setInterval(function () {
             timeLimit -= 1000; // Decrease time by 1 second
-            updateTimerDisplay(); // You can implement this function to update the UI with the remaining time
+            updateTimerDisplay(); // Update the UI with the remaining time
+    
+            // Calculate the animation duration dynamically
+            const animationDuration = (timeLimit / 1000) + 's';
+            $('#timer-bar').css({
+                'animation-duration': animationDuration,
+                'transition': 'height ' + animationDuration + ' linear'
+            });
     
             if (timeLimit <= 0) {
                 resetGame(); // Call a function to handle timeout (user loses)
@@ -115,6 +126,7 @@ let timerInterval; // Timer interval variable
         $(".buttons").prop("disabled", true);
         $(".start").prop("disabled", true);
         $(".buttons .boxColor").hide();
+        $("#timer-display").hide();
     
         $(".buttons").removeClass("shrink");
     
