@@ -74,9 +74,6 @@ let highScore = 0;
         });
     });
 
-    // to do list . dont allow the user to enetr game unless he wrote a username
-
-
 
     function checkAnswer(color) {
         userPattern.push(color);
@@ -162,6 +159,7 @@ let highScore = 0;
         document.getElementById('level').style.display = 'block'; // Show the level
         let gameMessage = document.querySelector('.game-message');
         gameMessage.style.color = '';
+        $(`.start`).addClass("lighter-green");
         nextSequence();
         
     }

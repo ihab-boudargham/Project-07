@@ -156,6 +156,6 @@ transition: opacity 0.3s ease;
     transition: transform 0.2s ease-in-out; 
 }
 
-.darken {
-    filter: brightness(10%);
+.lighter-green {
+    color: rgb(173, 255, 9);
 }
