@@ -32,7 +32,11 @@ body {
 .color-element:hover {
     box-shadow: inset 0px 0px 0px 3px rgb(0, 0, 0);
 }
- 
+
+.black {
+    color: black;
+    
+}
 
 .form-height {
     height: 450px;
@@ -42,7 +46,6 @@ body {
 .form p {
     font-family: 'Rubik Wet Paint', sans-serif;
     font-size: 30px;
-    color: black;
 }
 
 .user-details {
@@ -146,4 +149,13 @@ transition: opacity 0.3s ease;
     border: 2px solid rgb(1, 71, 1, 0.9);
     border-radius: 5px;
     z-index: 1000;
+}
+
+.shrink {
+    transform: scale(0.8); 
+    transition: transform 0.2s ease-in-out; 
+}
+
+.darken {
+    filter: brightness(10%);
 }
