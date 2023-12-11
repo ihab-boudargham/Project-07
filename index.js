@@ -17,24 +17,43 @@ let timerInterval; // Timer interval variable
 // });
 
     // creat correctPattern array and assign the audio to each color
-    function nextSequence () {
+    function nextSequence() {
         level++;
         $("#level").text(level);
         let rand = Math.floor(Math.random() * 4);
         let color = possibleColors[rand];
-        // alert(color);
         correctPattern.push(color);
         playAudio(color);
         clickAnnimation("#" + color);
-        startTimer();
+    
+        // Update the time limit based on the current level
+        timeLimit = calculateTimeLimit(level);
+    
+        // Restart the timer with the updated time limit
+        startTimer(timeLimit); // Pass the updated time limit to startTimer
     }
 
     function updateTimerDisplay() {
-        document.getElementById('timer-display').textContent = timeLimit / 1000 + 's';
+        const secondsRemaining = Math.max(0, Math.round(timeLimit / 1000)); // Ensure non-negative value
+        document.getElementById('timer-display').textContent = secondsRemaining + 's';
     }
 
-    function startTimer() {
-        timeLimit = 10000; // Reset time limit for each level
+    function calculateTimeLimit(level) {
+        const initialTimeLimit = 2000; // Initial time limit in milliseconds (2 seconds)
+        const increasePerLevel = 1000; // Increase per level in milliseconds (0.5 seconds)
+        const maximumTimeLimit = 15000; // Maximum time limit in milliseconds (10 seconds)
+    
+        // Calculate the new time limit based on the level
+        const newTimeLimit = initialTimeLimit + (level - 1) * increasePerLevel;
+    
+        // Limit the time to the maximum
+        return Math.min(newTimeLimit, maximumTimeLimit);
+    }
+    
+    
+
+    function startTimer(initialTimeLimit) {
+        timeLimit = initialTimeLimit; // Reset time limit for each level
         updateTimerDisplay();
     
         // Clear any existing timer interval
@@ -54,8 +73,8 @@ let timerInterval; // Timer interval variable
     function resetTimer() {
         // Reset the timer to the initial time limit
         clearInterval(timerInterval);
-        timeLimit = 10000; // Reset time limit to 10 seconds (or your desired initial time)
-        updateTimerDisplay(); // You can implement this function to update the UI with the initial time
+        timeLimit = calculateTimeLimit(level); // Use the calculated time limit for the level
+        updateTimerDisplay(); // Update the timer display
     }
     
 
@@ -68,19 +87,20 @@ let timerInterval; // Timer interval variable
     function resetGame() {
         clearInterval(timerInterval);
         updateTimerDisplay();
-        
+    
         // Reset the UI for a new game
         $(".buttons").prop("disabled", false);
         $(".start").prop("disabled", false);
         $(".buttons .boxColor").show();
         $(".buttons").removeClass("shrink text-white");
         updateGameMessage("You ran out of time. Press Start to play again.");
-
+    
         playAudio('lose');
         $(".start").show();
-
+    
+        // Reset level and time limit
         level = 0;
-
+        timeLimit = 2000; // Reset initial time limit to 2 seconds
     }
 
 
@@ -129,6 +149,7 @@ let timerInterval; // Timer interval variable
     function checkAnswer(color) {
         userPattern.push(color);
     
+
         if (color == correctPattern[numClick]) {
             if (userPattern.length == correctPattern.length) {
                 setTimeout(function () {
@@ -138,13 +159,14 @@ let timerInterval; // Timer interval variable
     
                     if (level > 0) {
                         displayWinMessage();
+                        resetTimer(); // Reset the timer before starting the next level
                         setTimeout(function () {
                             nextSequence();
-                            startTimer(); // Start the timer for the next level
+                            startTimer(calculateTimeLimit(level));; // Start the timer for the next level
                         }, 1000);
                     } else {
                         nextSequence();
-                        startTimer(); // Start the timer for the next level
+                        startTimer(calculateTimeLimit(level)); // Start the timer for the next level
                     }
                 }, 500);
             }
@@ -224,10 +246,8 @@ let timerInterval; // Timer interval variable
         gameMessage.style.color = '';
         $(`.start`).addClass("lighter-green");
         nextSequence();
-        
     }
     
-    document.querySelector('.start').addEventListener('click', startGame);
     
     function updateGameMessage(message) {
         document.querySelector('.game-message').innerHTML = message;
