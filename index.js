@@ -43,7 +43,7 @@ let timerInterval; // Timer interval variable
       }
 
     function calculateTimeLimit(level) {
-        const initialTimeLimit = 2500; // Initial time limit in milliseconds (3 seconds)
+        const initialTimeLimit = 2000; // Initial time limit in milliseconds (3 seconds)
         const increasePerLevel = 500; // Increase per level in milliseconds (0.5 seconds)
         const maximumTimeLimit = 15000; // Maximum time limit in milliseconds (10 seconds)
     
@@ -127,6 +127,7 @@ let timerInterval; // Timer interval variable
         $(".start").prop("disabled", true);
         $(".buttons .boxColor").hide();
         $("#timer-display").hide();
+        $(".exit-button").hide();
     
         $(".buttons").removeClass("shrink");
     
@@ -240,9 +241,9 @@ let timerInterval; // Timer interval variable
             alert('Please enter a username before starting the game.');
             return;
         }
-    
+        $(".exit-button").show();
         document.querySelector('.header button').style.color = 'darkgreen';
-    
+        
         document.querySelector('.start-screen').style.display = 'none';
         document.querySelector('.header button').style.display = 'block'; // Show the Start button
         $(".start").prop("disabled",false);
@@ -251,6 +252,7 @@ let timerInterval; // Timer interval variable
     }
     
     function startGame() {
+        $(".exit-button").show();
         updateGameMessage('Ready for the challenge? Follow the Pattern !');
         document.querySelector('.header button').style.display = 'none'; // Hide the Start button
         document.getElementById('level').style.display = 'block'; // Show the level
@@ -263,4 +265,29 @@ let timerInterval; // Timer interval variable
     
     function updateGameMessage(message) {
         document.querySelector('.game-message').innerHTML = message;
+    }
+
+    function exitGame() {
+        resetGame();
+    
+        // Clear the username input field
+        document.getElementById('username').value = "";
+
+        // Clear the displayed username
+        document.querySelector('.username p').textContent = "";
+
+        // Hide the game elements and show the start screen
+        showStartScreen();
+    }
+    
+    // Function to show the start screen
+    function showStartScreen() {
+        $(".start-screen").show();
+        $(".header button").hide();
+        $(".buttons .boxColor").hide();
+        $("#timer-display").hide();
+        $("#timer-bar").hide();
+        $("#level").hide();
+        $(".start").show();
+        $(".exit-button").hide();
     }
